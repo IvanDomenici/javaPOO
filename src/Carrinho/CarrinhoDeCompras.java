@@ -18,4 +18,6 @@ public class CarrinhoDeCompras {
     public double calcularTotal() {
         return 0.0;
     }
+    
+    //teste
 }
