@@ -15,6 +15,13 @@ public abstract class Produto {
     }
 
     
-    public abstract void exibirDetalhes();
+    public void exibirDetalhes(){
+        System.out.println("id: " + id);
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+  
 
 }

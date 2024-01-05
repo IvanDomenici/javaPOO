@@ -2,8 +2,9 @@ package semAlcool;
 
 
 import bebidas.BebidaNaoAlcoolica;
+import bebidas.DescontoAplicavel;
 
-public class Suco extends BebidaNaoAlcoolica {
+public class Suco extends BebidaNaoAlcoolica implements DescontoAplicavel {
     private String tipoFruta;
     private boolean natural; // true se o suco for natural, false se for concentrado
     private boolean semAcucar; // true se não tiver açúcar adicionado
@@ -46,5 +47,10 @@ public class Suco extends BebidaNaoAlcoolica {
 
     public void setSemAcucar(boolean semAcucar) {
         this.semAcucar = semAcucar;
+    }
+
+    @Override
+    public double descontoAplicavel() {
+        return super.getPreco();
     }
 }

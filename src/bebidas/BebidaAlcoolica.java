@@ -12,7 +12,8 @@ public class BebidaAlcoolica extends Produto {
     
     @Override
     public void exibirDetalhes() {
-        // Implementação específica
+        super.exibirDetalhes();
+        System.out.println("Teor : " + teorAlcoolico);
     }
  
 }
