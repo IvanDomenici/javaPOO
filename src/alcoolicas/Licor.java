@@ -5,7 +5,7 @@ import bebidas.BebidaAlcoolica;
 
 public class Licor extends BebidaAlcoolica {
     private String sabor;
-    private String origem; // País ou região de produção
+    private String origem; 
 
     public Licor(String sabor, String origem, double teorAlcoolico, int id, String nome, double preco, int quantidadeEmEstoque) {
         super(teorAlcoolico, id, nome, preco, quantidadeEmEstoque);

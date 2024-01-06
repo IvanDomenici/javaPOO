@@ -15,7 +15,8 @@ public class BebidaNaoAlcoolica extends Produto {
     
     @Override
     public void exibirDetalhes() {
-        // Implementação específica
+        super.exibirDetalhes();
+        System.out.println("Sabor: " + sabor);
     }
 
 }

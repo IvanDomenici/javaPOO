@@ -16,7 +16,11 @@ public abstract class Produto {
 
     
     public void exibirDetalhes(){
-        System.out.println("id: " + id);
+        System.out.println("ID: " + id);
+        System.out.println("Nome: "+nome);
+        System.out.println("Preço: "+preco);
+        System.out.println("Quantidade: "+quantidadeEmEstoque);
+
     }
 
     public double getPreco() {
