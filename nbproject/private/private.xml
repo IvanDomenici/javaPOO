@@ -4,11 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/Frames/CadProduto.java</file>
-            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/users/Administrador.java</file>
-            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/bebidas/Produto.java</file>
-            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/Frames/Start.java</file>
-            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/bebidas/BebidaAlcoolica.java</file>
-            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/Frames/Estoque.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/alcoolicas/Licor.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/semAlcool/Suco.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/bebidas/BebidaNaoAlcoolica.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/Cachacaria/src/semAlcool/Refrigerante.java</file>
         </group>
     </open-files>
 </project-private>

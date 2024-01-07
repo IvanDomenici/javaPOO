@@ -4,6 +4,7 @@
  */
 package Frames;
 
+import Carrinho.Estoque;
 import alcoolicas.Cerveja;
 import alcoolicas.Licor;
 import java.awt.BorderLayout;
@@ -20,19 +21,32 @@ import semAlcool.Suco;
  * @author Gabriel
  */
 public class CadProduto extends javax.swing.JFrame {
-    private Estoque parent;
+    private ControleEstoque parent;
      private JFrame out; 
     /**
      * Creates new form CadProduto
      */
+     private Estoque estoque;
     public CadProduto() {
-        parent = new Estoque();
+        parent = new ControleEstoque();
         initComponents();
         lpSemAlcool.setVisible(false);
         out = new JFrame();
     }
+    
+    public void setEstoque(Estoque e){
+        this.estoque = e;
+    }
+    
+    public CadProduto(Estoque e) {
+        parent = new ControleEstoque();
+        initComponents();
+        lpSemAlcool.setVisible(false);
+        out = new JFrame();
+        this.estoque = e;
+    }
 
-    public void setParent(Estoque e){
+    public void setParent(ControleEstoque e){
         parent = e;
     }
     
@@ -222,18 +236,13 @@ public class CadProduto extends javax.swing.JFrame {
         panelExterno1Layout.setHorizontalGroup(
             panelExterno1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelExterno1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(panelExterno1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelExterno1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelExterno1Layout.createSequentialGroup()
+                    .addGroup(panelExterno1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(panelExterno1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(panelExterno1Layout.createSequentialGroup()
                             .addComponent(jLabel14)
-                            .addGap(18, 18, Short.MAX_VALUE)))
-                    .addComponent(jLabel17)))
-            .addGroup(panelExterno1Layout.createSequentialGroup()
-                .addGroup(panelExterno1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)))
                     .addGroup(panelExterno1Layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addGroup(panelExterno1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +251,7 @@ public class CadProduto extends javax.swing.JFrame {
                     .addGroup(panelExterno1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(btnOK1)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE))
         );
         panelExterno1Layout.setVerticalGroup(
             panelExterno1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,7 +734,7 @@ public class CadProduto extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lpAlcoolica)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -816,8 +825,11 @@ public class CadProduto extends javax.swing.JFrame {
         out.setVisible(false);
         String tipo = tfTipo.getText();
         boolean artesanal = ckArtesanal.isSelected();
+        
         Cerveja cerv = new Cerveja(tipo, artesanal, teor, 1, nome, valor, quantidade);
-        cerv.exibirDetalhes();
+        
+        estoque.adicionarProduto(cerv);
+
         parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOKActionPerformed
@@ -827,7 +839,9 @@ public class CadProduto extends javax.swing.JFrame {
         String saborL = tfLicSabor.getText();
         String origem = tfPais.getText();
         Licor lic = new Licor(saborL, origem, teor, 2, nome, valor, quantidade);
-        lic.exibirDetalhes();
+     
+        estoque.adicionarProduto(lic);
+
         parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOK1ActionPerformed
@@ -837,7 +851,9 @@ public class CadProduto extends javax.swing.JFrame {
         boolean natural = ckNatural.isSelected();
         boolean acucar = ckAcucar.isSelected();
         Suco suco = new Suco(natural, acucar, sabor, 4, nome, valor, quantidade);
-        suco.exibirDetalhes();
+        
+        estoque.adicionarProduto(suco);
+
         parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOK2ActionPerformed
@@ -851,7 +867,9 @@ public class CadProduto extends javax.swing.JFrame {
         boolean diet = ckDiet.isSelected();
         boolean cafeina = ckCafeina.isSelected();
         Refrigerante refri = new Refrigerante(cafeina, diet, sabor, 5, nome, valor, quantidade);
-        refri.exibirDetalhes();
+         
+        estoque.adicionarProduto(refri);
+
         parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOK4ActionPerformed
@@ -886,6 +904,7 @@ public class CadProduto extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CadProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
       
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

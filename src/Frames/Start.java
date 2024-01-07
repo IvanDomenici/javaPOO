@@ -4,6 +4,8 @@
  */
 package Frames;
 
+import Carrinho.Estoque;
+
 /**
  *
  * @author Gabriel
@@ -13,8 +15,11 @@ public class Start extends javax.swing.JFrame {
     /**
      * Creates new form teste
      */
+    private Estoque estoque;
+
     public Start() {
         initComponents();
+        estoque = new Estoque();
     }
 
     /**
@@ -142,7 +147,8 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
-        Estoque estoque = new Estoque();
+        ControleEstoque estoque = new ControleEstoque(this.estoque);
+        estoque.setEstoque(this.estoque);
         estoque.setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
@@ -180,6 +186,7 @@ public class Start extends javax.swing.JFrame {
                 new Start().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

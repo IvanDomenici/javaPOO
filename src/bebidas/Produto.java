@@ -26,6 +26,20 @@ public abstract class Produto {
     public double getPreco() {
         return preco;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getQuantidadeEmEstoque() {
+        return quantidadeEmEstoque;
+    }
+    
+    
   
 
 }

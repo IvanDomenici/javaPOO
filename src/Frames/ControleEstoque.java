@@ -4,17 +4,24 @@
  */
 package Frames;
 
+import Carrinho.Estoque;
+
 /**
  *
  * @author Gabriel
  */
-public class Estoque extends javax.swing.JFrame {
+public class ControleEstoque extends javax.swing.JFrame {
 
     /**
      * Creates new form Estoque
      */
-    public Estoque() {
+    private Estoque estoque;
+    public ControleEstoque() {
         initComponents();
+    }
+    public ControleEstoque(Estoque e) {
+        initComponents();
+        this.estoque = estoque;
     }
 
     /**
@@ -31,9 +38,9 @@ public class Estoque extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnEstoque = new javax.swing.JButton();
-        btnVendas = new javax.swing.JButton();
+        btnVisualizar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(0, 0, 51));
@@ -60,12 +67,12 @@ public class Estoque extends javax.swing.JFrame {
             }
         });
 
-        btnVendas.setBackground(new java.awt.Color(0, 204, 0));
-        btnVendas.setForeground(new java.awt.Color(0, 0, 0));
-        btnVendas.setText("EDITAR");
-        btnVendas.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizar.setBackground(new java.awt.Color(0, 204, 0));
+        btnVisualizar.setForeground(new java.awt.Color(0, 0, 0));
+        btnVisualizar.setText("VISUALIZAR");
+        btnVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVendasActionPerformed(evt);
+                btnVisualizarActionPerformed(evt);
             }
         });
 
@@ -77,7 +84,7 @@ public class Estoque extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(btnVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -86,7 +93,7 @@ public class Estoque extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                    .addComponent(btnVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -140,15 +147,23 @@ public class Estoque extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setEstoque(Estoque e){
+        this.estoque = e;
+    }
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
-        CadProduto cadastro = new CadProduto();
+        CadProduto cadastro = new CadProduto(estoque);
         cadastro.setParent(this);
         cadastro.setVisible(true);
+        System.out.println(estoque.toString());
+        cadastro.setEstoque(estoque);
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
-    private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVendasActionPerformed
+    private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
+        VisualizarEstoque visual = new VisualizarEstoque();
+        visual.setEstoque(this.estoque);
+        visual.setParent(this);
+        visual.setVisible(true);
+    }//GEN-LAST:event_btnVisualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,27 +182,28 @@ public class Estoque extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleEstoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleEstoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleEstoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleEstoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Estoque().setVisible(true);
+                new ControleEstoque().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEstoque;
-    private javax.swing.JButton btnVendas;
+    private javax.swing.JButton btnVisualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
