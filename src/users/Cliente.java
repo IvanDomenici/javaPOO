@@ -4,13 +4,19 @@
  */
 package users;
 
-public class Cliente extends Usuario {
-    private String endereco;
-    private double valorGasto;
+import java.util.ArrayList;
 
-    public Cliente(String nome, String senha) {
-        super(nome, senha);
-        this.endereco = "";
+public class Cliente  {
+  
+    
+    private double valorGasto;
+    private String nome;
+    private String email;
+   
+
+    public Cliente(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
         this.valorGasto = 0.0;
     }
 
@@ -18,11 +24,5 @@ public class Cliente extends Usuario {
         this.valorGasto += valor;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
+    
 }

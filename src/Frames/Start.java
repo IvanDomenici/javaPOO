@@ -5,6 +5,7 @@
 package Frames;
 
 import Carrinho.Estoque;
+import users.ListaCliente;
 
 /**
  *
@@ -16,10 +17,12 @@ public class Start extends javax.swing.JFrame {
      * Creates new form teste
      */
     private Estoque estoque;
+    private ListaCliente lc;
 
     public Start() {
         initComponents();
         estoque = new Estoque();
+        lc = new ListaCliente();
     }
 
     /**
@@ -145,6 +148,7 @@ public class Start extends javax.swing.JFrame {
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
         CadUsuario usuario = new CadUsuario ();
         usuario.setVisible(true);
+        usuario.setLc(lc);
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
