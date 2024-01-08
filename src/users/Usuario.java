@@ -6,11 +6,11 @@ package users;
 
 abstract class Usuario {
     private String nome;
-    private String senha;
+    private String email;
 
-    public Usuario(String nome, String senha) {
+    public Usuario(String nome, String email) {
         this.nome = nome;
-        this.senha = senha;
+        this.email = email;
     }
 
 }
