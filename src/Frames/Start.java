@@ -65,7 +65,9 @@ public class Start extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 51), 1, true));
 
-        btnEstoque.setBackground(new java.awt.Color(255, 51, 51));
+        btnEstoque.setBackground(new java.awt.Color(0, 204, 0));
+        btnEstoque.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEstoque.setForeground(new java.awt.Color(0, 0, 0));
         btnEstoque.setText("ESTOQUE");
         btnEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +75,9 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
-        btnVendas.setBackground(new java.awt.Color(255, 51, 51));
+        btnVendas.setBackground(new java.awt.Color(255, 0, 153));
+        btnVendas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVendas.setForeground(new java.awt.Color(0, 0, 0));
         btnVendas.setText("VENDAS");
         btnVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +85,9 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
-        btnUsuarios.setBackground(new java.awt.Color(255, 51, 51));
+        btnUsuarios.setBackground(new java.awt.Color(255, 255, 0));
+        btnUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUsuarios.setForeground(new java.awt.Color(0, 0, 0));
         btnUsuarios.setText("USUARIOS");
         btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

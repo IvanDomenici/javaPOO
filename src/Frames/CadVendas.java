@@ -304,7 +304,7 @@ public class CadVendas extends javax.swing.JFrame {
         try {
             if (temDesconto) {
                 if (prod.descontoAplicavel()) {
-                    valorFinal = valorFinal * 0.1;
+                    valorFinal = valorFinal - (valorFinal * 0.1);
                 } else {
                     throw new Exception("Produto não possui desconto aplicável");
                 }
@@ -314,12 +314,13 @@ public class CadVendas extends javax.swing.JFrame {
         }
         try {
             prod.diminuiQuantidade(quantidade);
+            Venda venda = new Venda(cliente, dataCompra, valorFinal, prod, quantidade);
+            listaVendas.addVendas(venda);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            //setar o campo de quantidade como vazio    
+            tfQuantidade.setText("");
         }
-        Venda venda = new Venda(cliente, dataCompra, valorFinal, prod, quantidade);
-        listaVendas.addVendas(venda);
+        
         
 
 
