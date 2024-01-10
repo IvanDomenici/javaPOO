@@ -18,6 +18,7 @@ public class Start extends javax.swing.JFrame {
      */
     private Estoque estoque;
     private ListaCliente lc;
+    
 
     public Start() {
         initComponents();
@@ -70,6 +71,11 @@ public class Start extends javax.swing.JFrame {
 
         btnVendas.setBackground(new java.awt.Color(255, 51, 51));
         btnVendas.setText("VENDAS");
+        btnVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendasActionPerformed(evt);
+            }
+        });
 
         btnUsuarios.setBackground(new java.awt.Color(255, 51, 51));
         btnUsuarios.setText("USUARIOS");
@@ -149,6 +155,7 @@ public class Start extends javax.swing.JFrame {
         CadUsuario usuario = new CadUsuario ();
         usuario.setVisible(true);
         usuario.setLc(lc);
+        usuario.setParent(this);
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
@@ -156,6 +163,15 @@ public class Start extends javax.swing.JFrame {
         estoque.setEstoque(this.estoque);
         estoque.setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
+
+    private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
+   CadVendas vendas = new CadVendas();
+        vendas.setVisible(true);
+         vendas.setLc(lc);
+         vendas.setEstoque(this.estoque);
+        
+                
+    }//GEN-LAST:event_btnVendasActionPerformed
 
     /**
      * @param args the command line arguments

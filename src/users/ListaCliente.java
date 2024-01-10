@@ -21,6 +21,10 @@ public class ListaCliente {
         
     
     }
+
+    public ArrayList<Cliente> getListaCliente() {
+        return listaCliente;
+    }
     
     public void removerCliente(Cliente c){
     listaCliente.remove(c);

@@ -12,6 +12,10 @@ public class Cliente  {
     private double valorGasto;
     private String nome;
     private String email;
+
+    public String getNome() {
+        return nome;
+    }
    
 
     public Cliente(String nome, String email) {
