@@ -33,5 +33,14 @@ public class ListaCliente {
     public void MostrarCliente(){
         System.out.println(listaCliente.size());
     }
+    
+    public Cliente buscaClientePorNome(String nome){
+        for(Cliente cliente : this.listaCliente){
+            if(cliente.getNome().equals(nome)){
+                return cliente;
+            }
+        }
+        throw new IllegalArgumentException("Usuário Inexistente");
+    }
 }
  

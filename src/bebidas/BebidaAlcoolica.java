@@ -1,7 +1,7 @@
 package bebidas;
 
 
-public class BebidaAlcoolica extends Produto {
+public class BebidaAlcoolica extends Produto{
     private double teorAlcoolico;
 
     public BebidaAlcoolica(double teorAlcoolico, int id, String nome, double preco, int quantidadeEmEstoque) {
@@ -15,5 +15,12 @@ public class BebidaAlcoolica extends Produto {
         super.exibirDetalhes();
         System.out.println("Teor : " + teorAlcoolico);
     }
+
+    @Override
+    public boolean descontoAplicavel() {
+        return false;
+    }
+    
+    
  
 }

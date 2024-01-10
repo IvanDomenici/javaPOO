@@ -7,6 +7,7 @@ package Frames;
 import Carrinho.Estoque;
 import java.awt.Component;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import users.Cliente;
 import users.ListaCliente;
 
@@ -46,11 +47,6 @@ public class CadUsuario extends javax.swing.JFrame {
         parent = s;
     }
     
-    private void showAddInfo(Component cp){
-        out.add(cp);
-        out.setSize(this.getWidth() - 50, 200);
-        out.setVisible(true);                     
-    }
 
     public void setLc(ListaCliente lc){
     this.lc = lc;
@@ -228,14 +224,42 @@ public class CadUsuario extends javax.swing.JFrame {
      nome = tfNome.getText();
      email = tfEmail.getText();
      
-     Cliente c = new Cliente(nome,email);
-     lc.addCliente(c);
-  
-     
-     
-     
-     
+      
+    try {
+       
+        if (nome.isEmpty() || email.isEmpty()) {
+            throw new IllegalArgumentException("Por favor, preencha todos os campos.");
+        }
+
+      
+        if (!email.contains("@")) {
+            throw new IllegalArgumentException("Email inválido.");
+        }
+
         
+        Cliente c = new Cliente(nome, email);
+        lc.addCliente(c);
+
+       
+        String mensagemCadastro = "Cadastro realizado com sucesso!\nNome: " + nome + "\nEmail: " + email;
+        JOptionPane.showMessageDialog(this, mensagemCadastro, "Cadastro realizado", JOptionPane.INFORMATION_MESSAGE);
+        
+    
+
+    } catch (IllegalArgumentException erro) {
+       
+        JOptionPane.showMessageDialog(this, erro.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception e) {
+        
+        JOptionPane.showMessageDialog(this, "Ocorreu um erro durante o cadastro.", "Erro", JOptionPane.ERROR_MESSAGE);
+        e.printStackTrace(); 
+        
+    } finally {
+  
+        tfNome.setText("");
+        tfEmail.setText("");
+    }
+      
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**

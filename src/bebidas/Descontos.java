@@ -8,7 +8,7 @@ package bebidas;
  *
  * @author Gabriel
  */
-public interface DescontoAplicavel {
+public interface Descontos {
     
-    public double descontoAplicavel();
+    public boolean descontoAplicavel();
 }

@@ -19,4 +19,12 @@ public class BebidaNaoAlcoolica extends Produto {
         System.out.println("Sabor: " + sabor);
     }
 
+    @Override
+    public boolean descontoAplicavel() {
+        return true;
+    }
+
+
+
+
 }

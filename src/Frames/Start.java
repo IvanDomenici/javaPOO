@@ -5,6 +5,7 @@
 package Frames;
 
 import Carrinho.Estoque;
+import Carrinho.ListaVendas;
 import users.ListaCliente;
 
 /**
@@ -18,12 +19,15 @@ public class Start extends javax.swing.JFrame {
      */
     private Estoque estoque;
     private ListaCliente lc;
+    private ListaVendas listaVendas;
+    
     
 
     public Start() {
         initComponents();
         estoque = new Estoque();
         lc = new ListaCliente();
+        listaVendas = new ListaVendas();
     }
 
     /**
@@ -165,10 +169,11 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-   CadVendas vendas = new CadVendas();
-        vendas.setVisible(true);
-         vendas.setLc(lc);
-         vendas.setEstoque(this.estoque);
+  ControleVendas controleVendas = new ControleVendas();
+        controleVendas.setVisible(true);
+         controleVendas.setLc(lc);
+         controleVendas.setListaVendas(listaVendas);
+         controleVendas.setEstoque(this.estoque);
         
                 
     }//GEN-LAST:event_btnVendasActionPerformed

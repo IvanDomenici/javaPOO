@@ -35,6 +35,14 @@ public class Estoque {
         return produtos;
     }
 
+    public Produto buscaProdPorNome(String nome){
+        for(Produto prod : this.produtos){
+            if(prod.getNome().equals(nome)){
+                return prod;
+            }
+        }
+        throw new IllegalArgumentException("Produto Inexistente");
+    }
     
     
     

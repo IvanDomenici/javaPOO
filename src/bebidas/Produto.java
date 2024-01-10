@@ -1,7 +1,7 @@
 package bebidas;
 
 
-public abstract class Produto {
+public abstract class Produto implements Descontos {
     protected int id;
     protected String nome;
     protected double preco;
@@ -37,6 +37,18 @@ public abstract class Produto {
 
     public int getQuantidadeEmEstoque() {
         return quantidadeEmEstoque;
+    }
+   
+    private boolean disponibilidade(int quantidade){
+        return this.quantidadeEmEstoque >= quantidade;
+    }
+    
+    public void diminuiQuantidade(int quant){
+        if (this.disponibilidade(quant)){
+            this.quantidadeEmEstoque = this.quantidadeEmEstoque - quant;
+        }else{
+            throw new IllegalArgumentException("O produto não possui essa disponibilidae. Temos "+this.quantidadeEmEstoque+" em estoque.");
+        }
     }
     
     

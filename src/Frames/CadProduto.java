@@ -9,10 +9,13 @@ import alcoolicas.Cerveja;
 import alcoolicas.Licor;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import semAlcool.Refrigerante;
 import semAlcool.Suco;
 
@@ -20,12 +23,14 @@ import semAlcool.Suco;
  *
  * @author Gabriel
  */
-public class CadProduto extends javax.swing.JFrame {
+public class CadProduto extends javax.swing.JFrame  {
     private ControleEstoque parent;
      private JFrame out; 
     /**
      * Creates new form CadProduto
      */
+     
+     
      private Estoque estoque;
     public CadProduto() {
         parent = new ControleEstoque();
@@ -56,6 +61,7 @@ public class CadProduto extends javax.swing.JFrame {
         out.setVisible(true);                     
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -816,9 +822,11 @@ public class CadProduto extends javax.swing.JFrame {
                 case "Suco":
                     System.out.println("Suco");
                     showAddInfo(lpSuco);
-                    break;
+                    break;   
             }
         }
+       
+
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
@@ -976,4 +984,5 @@ public class CadProduto extends javax.swing.JFrame {
     private javax.swing.JTextField tfTipo;
     private javax.swing.JTextField tfValor;
     // End of variables declaration//GEN-END:variables
+
 }
